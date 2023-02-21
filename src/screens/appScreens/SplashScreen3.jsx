@@ -1,9 +1,16 @@
-import {Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
-import bg_image from '../assets/bg_image.png';
-import splash2 from '../assets/splash2.png';
+import bg_image from '../../assets/bg_image.png';
+import splash2 from '../../assets/splash2.png';
 
-const SplashScreen3 = () => {
+const SplashScreen3 = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -12,20 +19,28 @@ const SplashScreen3 = () => {
         style={styles.image}>
         <Image source={splash2} style={styles.header} />
         <View style={styles.textContainer}>
-        <Text style={[styles.welcomeText,styles.textShadow]}>Welcome To</Text>
-        <Text style={[styles.mainText,styles.textShadow]}>PayperView</Text>
-        <Text style={[styles.lightText,styles.textShadow]}>
-          Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-          sint. Velit officia consequat
-        </Text>
+          <Text style={[styles.welcomeText, styles.textShadow]}>
+            Welcome To
+          </Text>
+          <Text style={[styles.mainText, styles.textShadow]}>PayperView</Text>
+          <Text style={[styles.lightText, styles.textShadow]}>
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+            sint. Velit officia consequat
+          </Text>
         </View>
-      
+
         <View>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() => navigation.navigate('login')}>
             <Text style={[styles.btnText]}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.btn, {backgroundColor: 'transparent'}]}>
-            <Text style={[styles.btnText , styles.textShadow, {color:"#ffffff"}]}>Sign Up</Text>
+          <TouchableOpacity
+            style={[styles.btn, {backgroundColor: 'transparent'}]}>
+            <Text
+              style={[styles.btnText, styles.textShadow, {color: '#ffffff'}]}>
+              Sign Up
+            </Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
@@ -42,16 +57,15 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: 'center',
-
   },
   header: {
     position: 'absolute',
     top: 50,
-    marginLeft:30
+    marginLeft: 30,
   },
-  textContainer:{
-    paddingLeft:30,
-    marginBottom:120
+  textContainer: {
+    paddingLeft: 30,
+    marginBottom: 120,
   },
   welcomeText: {
     marginTop: 100,
@@ -78,8 +92,8 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     borderRadius: 10,
     marginTop: 10,
-    borderWidth:1,
-    borderColor:"#fff"
+    borderWidth: 1,
+    borderColor: '#fff',
   },
   btnText: {
     color: '#000',
@@ -87,9 +101,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 14,
   },
-  textShadow:{
+  textShadow: {
     textShadowColor: 'rgba(0, 0, 0, 0.55)',
     textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 10
-  }
+    textShadowRadius: 10,
+  },
 });
