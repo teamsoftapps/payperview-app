@@ -15,8 +15,12 @@
     "@react-navigation/native-stack": "^6.9.10",
     "react": "18.2.0",
     "react-native": "0.71.3",
+<<<<<<< HEAD
     "react-native-safe-area-context": "^4.5.0",
     "react-native-screens": "^3.20.0"
+=======
+    "react-native-vector-icons": "^9.2.0"
+>>>>>>> 544b9563853e34e864e072998810da3da38a4aa0
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
