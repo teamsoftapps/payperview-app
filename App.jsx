@@ -26,12 +26,13 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import SignUpFromScreen from './src/screens/SignUpFromScreen';
 import SplashScreen2 from './src/screens/SplashScreen2';
 import SplashScreen3 from './src/screens/SplashScreen3';
 
 
 
-function App(){
+function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -40,7 +41,7 @@ function App(){
 
   return (
     <>
-    <LoginScreen/>
+      <SignUpFromScreen />
     </>
   );
 }
