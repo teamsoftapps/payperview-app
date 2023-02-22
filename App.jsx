@@ -28,6 +28,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import IntroStack from './src/stacks/IntroStack';
 import HomeScreen from './src/screens/appScreens/HomeScreen';
+import TermsAndConditions from './src/screens/appScreens/TermsAndConditions';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,7 +40,7 @@ function App() {
           headerShown: false,
         }}>
         {/* <Stack.Screen name="authstack" component={IntroStack} /> */}
-        <Stack.Screen name="introstack" component={IntroStack} />
+        <Stack.Screen name="homescreen" component={TermsAndConditions} />
       </Stack.Navigator>
     </NavigationContainer>
   );
