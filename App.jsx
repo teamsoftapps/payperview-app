@@ -24,45 +24,28 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import LoginScreen from './src/screens/LoginScreen';
-import SignUpFromScreen from './src/screens/SignUpFromScreen';
-import SplashScreen2 from './src/screens/SplashScreen2';
-import SplashScreen3 from './src/screens/SplashScreen3';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import IntroStack from './src/stacks/IntroStack';
+import HomeScreen from './src/screens/appScreens/HomeScreen';
+import TermsAndConditions from './src/screens/appScreens/TermsAndConditions';
 
-
+const Stack = createNativeStackNavigator();
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <>
-      <SignUpFromScreen />
-    </>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        {/* <Stack.Screen name="authstack" component={IntroStack} /> */}
+        <Stack.Screen name="homescreen" component={TermsAndConditions} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+const styles = StyleSheet.create({});
 
 export default App;
