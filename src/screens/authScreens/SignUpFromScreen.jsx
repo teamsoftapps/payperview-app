@@ -40,12 +40,15 @@ const SignUpFromScreen = ({ navigation }) => {
 
                     {/* header */}
                     <View style={styles.headerContainer}>
-                        <Pressable
+                        <TouchableOpacity
+
                             style={styles.headerLeft}
                             onPress={backHandler}
                         >
                             <Icon name="angle-left" size={26} color="#fff" />
-                        </Pressable>
+
+                        </TouchableOpacity>
+
                         <View style={styles.headerCenter}>
                             <Text style={styles.headerCenterText}>Sign Up to continue</Text>
                         </View>
@@ -281,7 +284,7 @@ const SignUpFromScreen = ({ navigation }) => {
 
                     {step !== 3 &&
                         <TouchableOpacity>
-                            <Pressable onPress={stepHandler}>
+                            <TouchableOpacity onPress={stepHandler}>
                                 <LinearGradient
                                     start={{ x: 0.9, y: 0 }}
                                     end={{ x: 0.3, y: 0 }}
@@ -289,7 +292,7 @@ const SignUpFromScreen = ({ navigation }) => {
                                     style={styles.btn}>
                                     <Text style={styles.btnText}>Next</Text>
                                 </LinearGradient>
-                            </Pressable>
+                            </TouchableOpacity>
                             <View style={[styles.boxContainer, { justifyContent: 'center' }]}>
                                 <Text style={styles.label}>Do you have an account?</Text>
                                 <TouchableOpacity>

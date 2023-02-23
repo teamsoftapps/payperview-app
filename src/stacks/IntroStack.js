@@ -16,8 +16,8 @@ export default function IntroStack({ navigation }) {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="splashscreen1" component={SplashScreen1} />
-      <Stack.Screen name="splashscreen2" component={SplashScreen2} />
+      {/* <Stack.Screen name="splashscreen1" component={SplashScreen1} />
+      <Stack.Screen name="splashscreen2" component={SplashScreen2} /> */}
       <Stack.Screen name="splashscreen3" component={SplashScreen3} />
       <Stack.Screen name="signupscreen" component={SignUpFromScreen} />
       <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} />
