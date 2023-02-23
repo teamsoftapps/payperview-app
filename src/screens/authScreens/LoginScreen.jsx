@@ -1,6 +1,7 @@
 import {
   Image,
   ImageBackground,
+  Pressable,
   StyleSheet,
   Text,
   TextInput,
@@ -10,10 +11,31 @@ import {
 import React, {useState} from 'react';
 import loginScreen from '../../assets/loginScreen_bg.png';
 import logo from '../../assets/logo.png';
+import overlay2 from '../../assets/overlay2.png';
 import CheckBox from '@react-native-community/checkbox';
+import LinearGradient from 'react-native-linear-gradient';
 
 const LoginScreen = ({navigation}) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const toggleDropdown = () => {
+    setVisible(!visible);
+  };
+
+  //function for dropDown rendring
+  const renderDropdown = () => {
+    if (visible) {
+      return (
+        <View style={styles.dropdownContainer}>
+          <Text style={styles.dropdownText}>Test 1</Text>
+          <Text style={styles.dropdownText}>Test 2</Text>
+          <Text style={styles.dropdownText}>Test 3</Text>
+          <Text style={styles.dropdownText}>Test 4</Text>
+          <Text style={styles.dropdownText}>Test 5</Text>
+        </View>
+      );
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -22,18 +44,32 @@ const LoginScreen = ({navigation}) => {
         source={loginScreen}
         resizeMode="cover"
         style={styles.image}>
+        <Image source={overlay2} style={styles.overlay} />
         <Image source={logo} style={styles.Logo} />
         <Text style={styles.mainHeading}>{'PayperView'.toUpperCase()}</Text>
         <Text style={styles.heading}>Sign in to continue</Text>
         <View style={styles.inputContainer}>
+          <Pressable
+            style={[styles.select, styles.textShadow]}
+            onPress={toggleDropdown}>
+            {renderDropdown()}
+            <Text
+              style={{
+                fontWeight: 'bold',
+                position: 'relative',
+                color: '#B9B9B9',
+              }}>
+              Select User
+            </Text>
+          </Pressable>
           <TextInput
             style={styles.input}
-            placeholderTextColor="#B9B9B9"
+            // placeholderTextColor="#B9B9B9"
             placeholder="Email"
           />
           <TextInput
             secureTextEntry={true}
-            placeholderTextColor="#B9B9B9"
+            // placeholderTextColor="#B9B9B9"
             style={styles.input}
             placeholder="Password"
           />
@@ -48,11 +84,25 @@ const LoginScreen = ({navigation}) => {
           <Text style={styles.label}>Remember me</Text>
         </View>
 
-        <TouchableOpacity
-          style={styles.btn}
+        <Pressable
+          // style={styles.btn}
           onPress={() => navigation.navigate('login')}>
-          <Text style={[styles.btnText]}>Login</Text>
-        </TouchableOpacity>
+          <LinearGradient
+            start={{x: 0.9, y: 0}}
+            end={{x: 0.3, y: 0}}
+            colors={['#191970', '#8B30EF']}
+            style={styles.btn}>
+            <Text style={styles.btnText}>Login</Text>
+          </LinearGradient>
+          {/* <Text style={[styles.btnText]}>Login</Text> */}
+        </Pressable>
+
+        <Text  style={styles.textContainer} >
+          <Text style={styles.text}>Didn’t have an account?</Text>
+          <TouchableOpacity>
+           <Text style={styles.text}>Sign Up</Text> 
+            </TouchableOpacity>
+        </Text>
       </ImageBackground>
     </View>
   );
@@ -63,12 +113,18 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.8)',
+    // backgroundColor: 'rgba(0,0,0,0.8)',
   },
   image: {
     flex: 1,
     justifyContent: 'center',
-    opacity: 0.5,
+    // opacity: 0.8,
+  },
+  overlay: {
+    flex: 1,
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
   },
   Logo: {
     opacity: 1,
@@ -83,7 +139,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 25,
     marginTop: 10,
-    fontWeight: 'bold',
+    fontWeight: 600,
     marginBottom: 30,
   },
   heading: {
@@ -91,7 +147,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     marginTop: 10,
-    fontWeight: 'bold',
+    fontWeight: 500,
     marginVertical: 20,
   },
   inputContainer: {
@@ -107,6 +163,7 @@ const styles = StyleSheet.create({
   },
   input: {
     // borderWidth:1,
+    zIndex: -1,
   },
   checkBoxContainer: {
     flexDirection: 'row',
@@ -129,13 +186,34 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     borderRadius: 10,
     marginTop: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
   },
   btnText: {
-    color: '#000',
+    color: '#ffffff',
     fontWeight: 'bold',
     textAlign: 'center',
     marginVertical: 14,
+    fontSize:16
   },
+  dropdownContainer: {
+    position: 'absolute',
+    top: 20,
+    width: '100%',
+  },
+  dropdownText: {
+    backgroundColor: '#ffffff',
+    zIndex: 100,
+    paddingLeft: 10,
+    paddingBottom: 2,
+  },
+  textContainer:{
+    display:"flex",
+    alignItems:"center",
+    justifyContent:"center",
+    gap:10
+    // textAlign:"center",
+  },
+  text:{
+    color:"#ffffff",
+    marginTop:10
+  }
 });

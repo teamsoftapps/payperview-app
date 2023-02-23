@@ -30,6 +30,7 @@ import IntroStack from './src/stacks/IntroStack';
 import HomeScreen from './src/screens/appScreens/HomeScreen';
 import TermsAndConditions from './src/screens/appScreens/TermsAndConditions';
 import SignUpFromScreen from './src/screens/authScreens/SignUpFromScreen';
+import LoginScreen from './src/screens/authScreens/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,9 +41,9 @@ function App() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="authstack" component={IntroStack} />
+        {/* <Stack.Screen name="authstack" component={IntroStack} /> */}
         {/* <Stack.Screen name="authstack" component={TermsAndConditions} /> */}
-        {/* <Stack.Screen name="homescreen" component={SignUpFromScreen} /> */}
+        <Stack.Screen name="homescreen" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

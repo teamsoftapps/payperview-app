@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import backgroundImage from '../../assets/termsBackground.png';
-import dotImage from '../../assets/Dot.png';
+import dotImage from '../../assets/dot.png';
 import LinearGradient from 'react-native-linear-gradient';
 
 // import LinearGradient from 'react-native-linear-gradient';
