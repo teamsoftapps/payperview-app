@@ -1,6 +1,6 @@
-import {StyleSheet, Text, View, ScrollView, TouchableOpacity, Image} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import fourBoxImage from '../../assets/fourBox.png';
 import girlAvatar from '../../assets/homeGirlAvatar.png';
 
@@ -11,7 +11,7 @@ export default function HomeScreen() {
         <View style={styles.topBar}>
           <View style={styles.topleftImage}>
             <TouchableOpacity>
-                <Image source={fourBoxImage}/>
+              <Image source={fourBoxImage} />
             </TouchableOpacity>
           </View>
           <View style={styles.topMiddle}></View>

@@ -1,15 +1,16 @@
 import { Image, StyleSheet, Text, View, Pressable, TextInput, Keyboard, TouchableOpacity, ScrollView, BackHandler } from 'react-native'
 import React, { useState } from 'react'
-import signupbackground from "../assets/signupbackground.png"
-import overlay from "../assets/overlay.png"
-import dot from "../assets/dot.png"
-import profile from "../assets/profile.png"
-import visa from "../assets/visa.png"
-import colordot from "../assets/colordot.png"
+import signupbackground from "../../assets/signupbackground.png"
+import overlay from "../../assets/overlay.png"
+import plaindot from "../../assets/plaindot.png"
+import profile from "../../assets/profile.png"
+import visa from "../../assets/visa.png"
+import colordot from "../../assets/colordot.png"
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import LoginScreen from './LoginScreen'
 
-const SignUpFromScreen = () => {
+const SignUpFromScreen = ({ navigation }) => {
     const [step, setStep] = useState(1);
     const [form, setForm] = useState(['firstName,lastName,email,password,confirmPassword,Gender,birthDate,country,state,address,city,zipcode,cardNumber,expire,CVV']);
     const [showPassword, setShowPassword] = useState(true);
@@ -18,6 +19,7 @@ const SignUpFromScreen = () => {
 
     const stepHandler = () => {
         setStep((prevState) => {
+
             return prevState + 1
         })
     }
@@ -52,9 +54,9 @@ const SignUpFromScreen = () => {
                     {/* Step */}
                     <View style={styles.stepContainer}>
                         <Text style={step == 1 ? styles.Active : styles.stepText}>Step 1</Text>
-                        <Image source={step == 1 ? colordot : dot} style={styles.stepImage} />
+                        <Image source={step == 1 ? colordot : plaindot} style={styles.stepImage} />
                         <Text style={step == 2 ? styles.Active : styles.stepText}>Step 2</Text>
-                        <Image source={step == 2 ? colordot : dot} style={styles.stepImage} />
+                        <Image source={step == 2 ? colordot : plaindot} style={styles.stepImage} />
                         <Text style={step == 3 ? styles.Active : styles.stepText}>Step 3</Text>
                     </View>
 
@@ -301,7 +303,7 @@ const SignUpFromScreen = () => {
                     {step == 3 &&
 
                         <TouchableOpacity>
-                            <Pressable onPress={stepHandler}>
+                            <Pressable onPress={() => navigation.navigate('TermsAndConditions')}>
                                 <LinearGradient
                                     start={{ x: 0.9, y: 0 }}
                                     end={{ x: 0.3, y: 0 }}

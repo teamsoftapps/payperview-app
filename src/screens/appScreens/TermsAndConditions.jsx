@@ -9,6 +9,8 @@ import {
 import React from 'react';
 import backgroundImage from '../../assets/termsBackground.png';
 import dotImage from '../../assets/Dot.png';
+import LinearGradient from 'react-native-linear-gradient';
+
 // import LinearGradient from 'react-native-linear-gradient';
 
 export default function TermsAndConditions() {
@@ -38,25 +40,31 @@ export default function TermsAndConditions() {
             Phasellus gravida felis leo.
           </Text>
 
-          <View>
-            {/* <Pressable>
+
+
+
+
+          <View style={styles.btnContainer}>
+
+            <Pressable onPress={() => navigation.navigate('login')}>
               <LinearGradient
-                start={{x: 0.9, y: 0}}
-                end={{x: 0.3, y: 0}}
+                start={{ x: 0.9, y: 0 }}
+                end={{ x: 0.3, y: 0 }}
                 colors={['#191970', '#8B30EF']}
                 style={styles.btn}>
-                <Text style={styles.btnText}>Login</Text>
+                <Text style={styles.btnText}>Agree</Text>
               </LinearGradient>
-              <View style={[styles.boxContainer, {justifyContent: 'center'}]}>
-                <Text style={[styles.label, styles.textShadow]}>
-                  Didn’t have an account?
-                </Text>
+            </Pressable>
+          </View>
 
-                <TouchableOpacity>
-                  <Text style={styles.label}>Sign Up</Text>
-                </TouchableOpacity>
+          <View style={styles.cancelbtnContainer}>
+
+            <Pressable onPress={() => navigation.navigate('login')}>
+              <View
+                style={styles.cancelbtn}>
+                <Text style={styles.btnText}>Cancel</Text>
               </View>
-            </Pressable> */}
+            </Pressable>
           </View>
         </View>
       </ImageBackground>
@@ -103,5 +111,57 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: 300,
   },
-  agreeButton: {},
+
+
+  label: {
+    color: '#ffffff',
+    fontWeight: 600,
+  },
+  btn: {
+    width: '80%',
+    // background: linear-gradient("308.77deg", "#191970 5.46%", "#FF2CD1 159.86%"),
+    height: 50,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderRadius: 100,
+    // marginTop: 10,
+  },
+  btnText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 14,
+  },
+  boxContainer: {
+    flexDirection: 'row',
+    width: '80%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    alignItems: 'center',
+    marginTop: 10,
+    gap: 8,
+  },
+  btnContainer: {
+    marginTop: 40,
+    width: "100%",
+
+
+  },
+  cancelbtnContainer: {
+    marginTop: 10,
+    width: "100%"
+
+
+  },
+  cancelbtn: {
+    width: '80%',
+    // background: linear-gradient("308.77deg", "#191970 5.46%", "#FF2CD1 159.86%"),
+    height: 50,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderRadius: 100,
+    borderColor: "#fff",
+    borderWidth: 1
+  },
+
 });

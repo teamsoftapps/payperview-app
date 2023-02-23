@@ -10,7 +10,7 @@ import React from 'react';
 import bg_image from '../../assets/bg_image.png';
 import splash2 from '../../assets/splash2.png';
 
-const SplashScreen3 = ({navigation}) => {
+const SplashScreen3 = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -36,9 +36,11 @@ const SplashScreen3 = ({navigation}) => {
             <Text style={[styles.btnText]}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.btn, {backgroundColor: 'transparent'}]}>
+            onPress={() => navigation.navigate('signupscreen')}
+
+            style={[styles.btn, { backgroundColor: 'transparent' }]}>
             <Text
-              style={[styles.btnText, styles.textShadow, {color: '#ffffff'}]}>
+              style={[styles.btnText, styles.textShadow, { color: '#ffffff' }]}>
               Sign Up
             </Text>
           </TouchableOpacity>
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
   },
   textShadow: {
     textShadowColor: 'rgba(0, 0, 0, 0.55)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
   },
 });
